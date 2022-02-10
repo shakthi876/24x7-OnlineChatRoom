@@ -4,8 +4,13 @@
 <head>
   {% load static %}
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="{% static 'images/logo.jpg' %}" type="image/gif" sizes="12x12">
+  
   <title>Chat Room</title>
+  <link rel="icon" href="{% static 'images/logo.jpg' %}" type="image/gif" sizes="12x12">
+  <meta property="og:title" content=" Online 24x7 Chat Room" />
+    <meta property="og:description" content="Chatroom is a free chat room website where you can have live chat with people, you can discuss with random strangers from all over the world, at the same time in multiple chatrooms and discussion groups." />
+
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bilbo+Swash+Caps&family=Dongle&family=Dosis:wght@800&family=Faster+One&family=Inconsolata:wght@300&family=Luxurious+Roman&family=Trade+Winds&display=swap" rel="stylesheet">
@@ -132,10 +137,16 @@ text-decoration: none;
   
 }
 
+
 @media screen and (max-width: 410px) {
   
   .bottom{
   font-size: 70%;
+  position:absolute;
+}
+
+#hide{
+  display: none;
 }
 .top{
   font-size: 140%;
@@ -146,13 +157,13 @@ text-decoration: none;
 }
 .join{
   font-weight: bold;
-  font-size: 100%;
+  font-size: 120%;
 }
 input{
-  height: 20px;
+  height: 30px;
 }
 ::placeholder,small {
-  font-size: 60%;
+  font-size: 70%;
 }
 .form-control{
   width: 200%;
@@ -162,21 +173,7 @@ input{
   font-size: 60%;
   padding-bottom: 1px;
 }
-input {
-    border: 5px solid white; 
-    -webkit-box-shadow: 
-      inset 0 0 8px  rgba(0,0,0,0.1),
-            0 0 16px rgba(0,0,0,0.1); 
-    -moz-box-shadow: 
-      inset 0 0 8px  rgba(0,0,0,0.1),
-            0 0 16px rgba(0,0,0,0.1); 
-    box-shadow: 
-      inset 0 0 8px  rgba(0,0,0,0.1),
-            0 0 16px rgba(0,0,0,0.1); 
-    padding: 15px;
-    background: rgba(255,255,255,0.5);
-    margin: 0 0 10px 0;
-}
+
 }
 
 
@@ -340,7 +337,7 @@ input{
 
  <div class="bottom">
    <hr>
-  Chatroom is a free chat room website where you can have live chat with people, you can discuss with random strangers from all over the world, at the same time in multiple chatrooms and discussion groups. 
+  Chatroom is a free chat room website where you can have live chat with people, you can discuss with random strangers from all over the world,<span class="hide"> at the same time in multiple chatrooms and discussion groups. </span>
   <p style="font-weight: bold; text-align: right; " >  &copy; Shakthi.in</p>	
  </div>
 
