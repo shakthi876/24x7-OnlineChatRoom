@@ -6,11 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
   <title>Chat Room</title>
- 
+  <link rel="icon" href="{% static 'images/logo.jpg' %}" type="image/gif" sizes="12x12">
   <meta property="og:title" content=" Online 24x7 Chat Room" />
     <meta property="og:description" content="Chatroom is a free chat room website where you can have live chat with people, you can discuss with random strangers from all over the world, at the same time in multiple chatrooms and discussion groups." />
 
- <link rel="icon" href="{% static 'images/logo.jpg' %}" type="image/gif" sizes="16x16">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bilbo+Swash+Caps&family=Dongle&family=Dosis:wght@800&family=Faster+One&family=Inconsolata:wght@300&family=Luxurious+Roman&family=Trade+Winds&display=swap" rel="stylesheet">
@@ -142,7 +142,7 @@ text-decoration: none;
   
   .bottom{
   font-size: 70%;
-  position: relative;
+  display: none;
 }
 
 #hide{
@@ -185,13 +185,14 @@ input{
 .join{
   font-weight: bold;
   font-size: 140%;
+
 }
 #post-form{
   width: 70%;
 }
 .bottom{
   font-size: 80%;
-  position: relative;
+ 
 }
 .btn,input{
   font-size: 80%;
