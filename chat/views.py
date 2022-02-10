@@ -3,6 +3,7 @@ from chat.models import Room, Message
 from django.http import HttpResponse, JsonResponse
 import datetime
 from datetime import datetime,date
+import pytz
 # Create your views here.
 def home(request):
     return render(request, 'home.html')
@@ -41,7 +42,8 @@ def send(request):
     message = request.POST['message']
     username = request.POST['username']
     room_id = request.POST['room_id']
-    now = datetime.now()
+    IST = pytz.timezone('Asia/Kolkata')
+    now = datetime.now(IST)
     current_time = now.strftime("%I:%M:%S %p")
     today = date.today().strftime('%d/%m/%Y')
     new = Message.objects.create(value=message,user=username,room=room_id,date=today,time=current_time)
