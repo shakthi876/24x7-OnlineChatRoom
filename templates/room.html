@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+<head>
+  {% load static %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title> {{room}} chat room</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="icon" href="{% static 'images/logo.jpg' %}" type="image/gif" sizes="12x12">
+<script src="https://kit.fontawesome.com/9234ad5b48.js" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bilbo+Swash+Caps&family=Dongle&family=Dosis:wght@800&family=Faster+One&family=Inconsolata:wght@300&family=Luxurious+Roman&family=Trade+Winds&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital@1&display=swap" rel="stylesheet">
+
+<style>
+
+.time-left {
+  
+  float: left;
+  font-size: 70%;
+  font-family:Arial, Helvetica, sans-serif;
+  color: grey;
+ 
+}
+.topi{
+  background: #FFFC00;
+    font-family: 'Nunito', sans-serif;
+    padding-top:1%;
+   padding-bottom: 0.4%;
+   position: fixed;
+   top: 0;
+   width: 100%;
+  }
+ 
+  img{
+    
+    border-radius: 20%;
+  
+}
+  .top{
+   
+  color: black; 
+  font-weight: bolder;
+  font-size: xx-large;
+
+  
+  }
+  .top:hover{
+    color:black;
+  }
+  .look{
+    background: #66ccff;
+    padding: 4px;
+    color: #000;
+    
+  }
+.name{
+  font-family: 'Nunito', sans-serif;
+  color: #000;
+  font-size: 170%;
+  margin-left: 19%;
+}
+  
+.head{
+  font-family: 'Nunito', sans-serif;
+  color: #000;
+  font-weight: bold;
+  font-size: 150%;
+  padding-top: 1%;
+}
+.exit{
+  font-size: 100%;
+  padding: 0.5%;
+  padding-left: 2%;
+  padding-right: 2%;
+  margin-top: 3px;
+}
+.all{
+  
+  width: 50%;
+  margin: 0 auto;
+ 
+ 
+  border-radius: 3px;
+    box-shadow: 0px 0px 5px 0px rgb(122, 156, 158);
+}
+#display{
+  height: 400px; 
+  overflow: auto;
+  border: 1px solid black;
+  
+  padding: 5px;
+}
+.shakthi{
+  font-weight: bold; 
+  text-align: right;
+  margin-right: 90px;
+}
+
+</style>
+<script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <div class="look fixed-top p-1 pl-4">
+    <table >
+      <thead>
+        <tr>
+          <th>
+            <a href="{% url 'home'%}"> <img src="{% static 'images/logo.jpg'%}" width="45" height="45" alt=" Logo"></a>  
+          </th>
+          <th class="top" style="padding-left: 10px;" >
+            <a href="{% url 'home'%}" style="color: #000; text-decoration: none; font-family: 'Nunito', sans-serif;">  Chat Room </a>
+          </th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+ <br><br> <br>
+ <h2 class="name pl-5">Welcome {{username}},</h2> 
+
+ 
+
+<div class="all">
+ <div class="container">
+   <div class="row p-1">
+      <div class="col-7 col-md-9 col-lg-9 col-xl-10">
+        <h2 class="head"> {{room}} chat room </h2>
+      </div>
+      <div class="col">
+        <a href="{% url 'home'%}" class="btn btn-danger exit ml-auto "><i class="fas fa-times"></i> Exit Room</a>
+      </div>
+   </div>
+   
+   <div class="row">
+     <div class="col">
+      <div id="display" >
+
+        <!-- <div class="container darker">
+          <b>Tom</b><p>Hello Everyone, How Are You Guys Doing?</p>
+          
+          <span class="time-left">20th, April 2021</span>
+        </div> -->
+        
+        </div>
+     </div>
+
+   </div>
+
+   <div class="row p-md-3 ">
+      <div class="col-9 col-md-9 col-lg-9 col-xl-9 msend">
+        <form id="post-form">
+          {% csrf_token %}
+          <input type="hidden" name="username" id="username" value="{{username}}"/>
+          <input type="hidden" name="room_id" id="room_id" value="{{room_details.id}}"/>
+        
+          <input type="text" name="message" placeholder="Message" class='form-control' id="message" />
+      </div>
+
+        <div class="col send">
+          <button type="submit" class="btn btn-success btnsend">
+            <i class="fas fa-play-circle fa-lg"></i>&nbsp; Send  </button>
+        </div>
+      </form>
+    </div>
+
+
+  </div>
+
+</div>
+
+<style>
+.user{
+  font-size: 100%;
+  font-weight: bolder;
+  color:#0072C6;
+  font-family:Arial, Helvetica, sans-serif;
+  border-top: 2px ridge #e3e7e950 ;
+}
+  .msg{
+    
+    color: #14171A;
+    font-size: 100%;
+    font-weight: lighter;
+  }
+  @media screen and (max-width: 500px) and (min-width: 300px) {
+  
+  .name{
+    margin-left: 2px;
+    margin-bottom: 6px;
+  }
+  .all{
+    margin-left: 4%;
+    width:90%;
+  }
+  #display{
+    height:400px;
+   
+  }
+  .msend{
+    padding:8px;
+    margin-left: 1%;
+  }
+  .send{
+    padding:10px;
+    margin-left: 1%;
+  }
+  .btnsend{
+    padding: 3px;
+    padding-right: 5px;
+    padding-left: 2px;
+  }
+  .form-control{
+    width: 100%;
+  }
+  }
+  @media screen and (max-width: 700px) and (min-width: 500px) {
+  
+    body{
+ 
+    margin: 0;
+  }
+  .all{
+    margin-left: 4%;
+  }
+  .name{
+    margin-left: 1%;
+    font-size: 150%;
+  }
+  #display{
+    height: 380px;;
+  }
+  #message{
+    width: 97%;
+    height: 50%;
+  }
+  .head{
+    font-size: 145%;
+    
+  }
+  .msend{
+    padding:8px;
+    margin-left: 1%;
+  }
+  .send{
+    padding:10px;
+    margin-left: 1%;
+  }
+  .user,.msg{
+    font-size: 90%;
+  }
+  .all{
+    width: 90%;
+    box-shadow: 0px 0px 0px 0px rgb(122, 156, 158);
+  }
+  .btnsend{
+    padding: 4px;
+    
+  }
+  .shakthi{
+    display: none;
+  }
+}
+
+  @media screen and (max-width: 1000px) and (min-width: 700px) {
+    
+
+
+.shakthi{
+    display: none;
+  }
+    .all{
+    margin-left: 4%;
+    position: fixed;
+    top:5;
+  }
+  .name{
+    margin-left: 1%;
+    font-size: 150%;
+  }
+  .head{
+    font-size: 145%;
+  }
+  #display{
+    height:400px;
+  }
+  .all{
+    width: 90%;
+    box-shadow: 0px 0px 1px 0px rgb(122, 156, 158);
+  }
+  .msend{
+    padding:8px;
+    margin-left: 1%;
+  }
+  .send{
+    padding:5px;
+    margin-left: 2%;
+    margin-top: 2px;
+  }
+  
+  }
+  @media screen and (max-width: 1300px) and (min-width: 1000px){
+  
+    #display{
+      height: 420px;
+    }
+    .all{
+      width: 70%;
+    }
+    .send{
+      margin-left: 5px;
+    }
+    .name{ 
+      font-size: 200%;
+      margin-left: 10%;
+    }
+    .head{
+      font-size: 180%;
+    }
+    .exit{
+      margin-top: 10px;
+      font-size: 110%;
+    }
+    .user{
+      font-size: 110%;
+    }
+    .msg{
+      font-size: 100%;
+    }
+    .time-left{
+      font-size: 80%;
+    }
+  }
+ 
+</style>
+
+
+
+
+
+
+
+<script>
+$(document).ready(function(){
+
+setInterval(function(){
+  var oldscrollHeight = $("#display")[0].scrollHeight - 20;
+    $.ajax({
+        type: 'GET',
+        url : "/getMessages/{{room}}/",
+        success: function(response){
+            console.log(response);
+            $("#display").empty();
+            for (var key in response.messages)
+            {
+                var temp="<div class='container cht'><p class='user'>&#128100;"+response.messages[key].user+": &ensp;<span class='msg'>"+response.messages[key].value+"</span></p><span class='time-left' >"+response.messages[key].date+','+response.messages[key].time+"</span></div><br>";
+                $("#display").append(temp);
+            }
+            var newscrollHeight = $("#display")[0].scrollHeight - 20;
+            if(newscrollHeight > oldscrollHeight){
+            $("#display").animate({ scrollTop: newscrollHeight }, 'normal'); //Autoscroll to bottom of div
+      }
+
+        },
+        error: function(response){
+            alert('An error occured')
+        }
+    });
+},1000);
+})
+</script>
+
+
+
+
+
+    <p class="shakthi" >  &copy; Shakthi.in</p>
+
+        
+
+
+
+    
+
+
+
+</body>
+
+<script type="text/javascript">
+  $(document).on('submit','#post-form',function(e){
+    e.preventDefault();
+
+    $.ajax({
+      type:'POST',
+      url:'/send',
+      data:{
+          username:$('#username').val(),
+          room_id:$('#room_id').val(),
+          message:$('#message').val(),
+        csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
+      },
+      success: function(data){
+         //alert(data)
+      }
+    });
+    document.getElementById('message').value = ''
+  });
+</script>
+
+</html>
+
+

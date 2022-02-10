@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  {% load static %}
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="{% static 'images/logo.jpg' %}" type="image/gif" sizes="12x12">
+  <title>Chat Room</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bilbo+Swash+Caps&family=Dongle&family=Dosis:wght@800&family=Faster+One&family=Inconsolata:wght@300&family=Luxurious+Roman&family=Trade+Winds&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital@1&display=swap" rel="stylesheet">
+
+</head>
+<style>
+ 
+ input{
+   height: 0%;
+ }
+ 
+  label{
+    font-family: 'Nunito', sans-serif;
+    color: black;
+    
+    font-size: 110%;
+  }
+  
+  .text{
+  
+    color: black;
+   font-weight: bolder;
+  
+ 
+  }
+
+
+  .btn{
+    font-family: 'Nunito', sans-serif;
+    margin-left:5%;
+    font-weight: 100%;
+    border-radius:  5px;
+    background-color: black;
+   
+  }
+  .btn:hover {
+color: #fff !important;
+text-decoration: none;
+}
+  h1{
+    padding-top: 1%;
+   padding-bottom: 1%;
+  }
+  nav{
+    background:  #66ccff;
+   
+  }
+  
+  .c{
+    margin-left:30%
+  } 
+  .te,input[type="text"]
+  {
+    
+    color: black;
+    font-family: 'Nunito', sans-serif;
+   font-weight: 500%;
+  }
+  .bottom{
+    position: fixed;
+    bottom: 0;
+    font-family: 'Nunito', sans-serif;
+    color: black;
+    font-weight:40px;
+    margin-bottom: 1%;
+    margin-left: 10%;
+    margin-right: 10%;
+    text-align: justify;
+  text-justify: inter-word;
+  }
+  .form-container{
+    position:absolute;
+    background: #fff;
+    top:10vh;
+    padding: 30px;
+   
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px #000;
+  }
+  img{
+    
+    border-radius: 20%;
+  
+}
+  .top{
+   
+  color: black; 
+  font-weight: bolder;
+  font-size: xx-large;
+  font-family: 'Nunito', sans-serif;
+  
+  }
+  .top:hover{
+    color:black;
+  }
+  .look{
+    background: #66ccff;
+    padding: 10px;
+    
+  }
+  .center {
+  margin-left: auto;
+  margin-right: auto;
+}
+.join{
+  font-family: 'Nunito', sans-serif;
+  color: #000;
+  font-weight: bold;
+  font-size: 200%;
+  
+}
+
+@media screen and (max-width: 410px) {
+  
+  .bottom{
+  font-size: 70%;
+}
+.top{
+  font-size: 140%;
+}
+#post-form{
+  width: 70%;
+  
+}
+.join{
+  font-weight: bold;
+  font-size: 100%;
+}
+input{
+  height: 20px;
+}
+::placeholder,small {
+  font-size: 60%;
+}
+.form-control{
+  width: 200%;
+}
+.btn{
+  padding: 3px;
+  font-size: 60%;
+  padding-bottom: 1px;
+}
+input {
+    border: 5px solid white; 
+    -webkit-box-shadow: 
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1); 
+    -moz-box-shadow: 
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1); 
+    box-shadow: 
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1); 
+    padding: 15px;
+    background: rgba(255,255,255,0.5);
+    margin: 0 0 10px 0;
+}
+}
+
+
+@media screen and (max-width: 500px) and (min-width: 410px) {
+
+.join{
+  font-weight: bold;
+  font-size: 140%;
+}
+#post-form{
+  width: 70%;
+}
+.bottom{
+  font-size: 80%;
+}
+.btn,input{
+  font-size: 80%;
+}
+.btn{
+  padding: 3px;
+}
+::placeholder,small {
+  
+  font-size: 70%;
+}
+input{
+  height: 25px;
+}
+
+}
+@media screen and (max-width: 574px) and (min-width: 500px) {
+  
+  input{
+  height: 30px;
+}
+  .bottom{
+    font-size: 80%;
+  }
+  .btn{
+  padding: 3px;
+  font-size: 70%;
+  
+}
+::placeholder,small {
+  
+  font-size: 70%;
+}
+
+  .join{
+    font-size: 170%;
+  }
+  .center{
+    margin-left: 1%;
+  }
+  }
+
+  @media screen and (max-width: 764px) and (min-width: 575px) {
+  
+  .login{
+    margin-left: 90%;
+  }
+  #post-form{
+  
+    width: 120%;
+
+  }
+  .bottom{
+    font-size: 90%;
+  }
+  .join{
+    font-size: 190%;
+  }
+  .center{
+    margin-left: 1%;
+  }
+  }
+  @media screen and (max-width: 767px) and (min-width: 760px) {
+
+   
+    .center{
+      margin-left: 15%;
+    }
+  }
+  @media screen and (max-width: 1000px) and (min-width: 767px) {
+  
+ 
+  .bottom{
+    font-size: 90%;
+  }
+  .join{
+    font-size: 190%;
+  }
+  .login{
+    margin-left: 2%;
+  }
+  
+  }
+
+
+</style>
+<body>
+  <link rel="stylesheet" href="{% static 'css/look.css'%}">
+  
+
+
+<div class="look p-1 pl-4">
+    <table>
+      <thead>
+        <tr>
+          <th>
+            <a href="{% url 'home'%}"> <img src="{% static 'images/logo.jpg'%}" width="45" height="45" alt=" Logo"></a>  
+          </th>
+          <th class="top " style="padding-left: 10px;" >
+            <a href="{% url 'home'%}" style=" color: #000000;text-decoration: none;">  Chat Room </a>
+          </th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+
+
+<!-- Image and text -->
+
+
+ 
+
+
+  <section class="container-fluid">
+    <section class="row center ">
+      <section class="col-12 col-sm-6 col-md-12 col-lg-12">
+
+     
+        
+<div class="login d-flex justify-content-center">
+  
+    <form id="post-form" method="POST" action="checkview" class="needs-validation form-container " novalidate>
+      {% csrf_token %}
+      <div class="d-flex justify-content-center join">Login To Chat &#x1F511; 	</div> <hr id='none'>
+        
+      <div class="form-group mr-4  mt-sm-2 mr-sm-5 ml-sm-2">
+        
+        <input type="text" name="room_name" class="form-control" id="room_name"  placeholder="Enter Room name" style="width: 120%;"  required />
+        <small id="room_name" class="form-text text-muted" >It is Case-sensitive</small>
+       
+        <div class="invalid-feedback">Please fill out this field</div>
+      </div>
+      <div class="form-group mr-4   mt-2  mr-sm-5 ml-sm-2">
+        
+        <input type="text" name="username" id="username"  class="form-control input-sm"  placeholder="Enter Username" style="width: 120%;" required />
+        
+        <div class="invalid-feedback">Please fill out this field</div>
+      </div>
+
+      <input type="submit" class="mt-2  mr-5 ml-2 btn btn-dark" value="Join Chat">
+    
+    </form></div>
+  </section>
+</section>
+</section>
+
+
+ <div class="bottom">
+   <hr>
+  Chatroom is a free chat room website where you can have live chat with people, you can discuss with random strangers from all over the world, at the same time in multiple chatrooms and discussion groups. 
+  <p style="font-weight: bold; text-align: right; " >  &copy; Shakthi.in</p>	
+ </div>
+
+
+  <script>
+    // Disable form submissions if there are invalid fields
+    (function () {
+      'use strict';
+      window.addEventListener('load', function () {
+        // Get the forms we want to add validation styles to
+        var forms = document.getElementsByClassName('needs-validation');
+        // Loop over them and prevent submission
+        var validation = Array.prototype.filter.call(forms, function (form) {
+          form.addEventListener('submit', function (event) {
+            if (form.checkValidity() === false) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+          }, false);
+        });
+      }, false);
+    })();
+  </script>
+
+</body>
+
+
+</html>
