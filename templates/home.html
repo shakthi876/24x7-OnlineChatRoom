@@ -3,10 +3,11 @@
 
 <head>
   {% load static %}
+  <link rel="icon" href="{% static 'images/logo.jpg' %}" type="image/gif" sizes="16x16">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
   <title>Chat Room</title>
-  <link rel="icon" href="{% static 'images/logo.jpg' %}" type="image/gif" sizes="12x12">
+ 
   <meta property="og:title" content=" Online 24x7 Chat Room" />
     <meta property="og:description" content="Chatroom is a free chat room website where you can have live chat with people, you can discuss with random strangers from all over the world, at the same time in multiple chatrooms and discussion groups." />
 
@@ -174,8 +175,7 @@ input{
   padding-bottom: 1px;
 }
 .shakthi{
-  font-size: 70%;
-  text-align: right;
+  display: none;
 }
 }
 
@@ -208,8 +208,7 @@ input{
   height: 25px;
 }
 .shakthi{
-  font-size: 70%;
-  text-align: right;
+  display: none;
 }
 
 }
@@ -238,6 +237,9 @@ input{
   .center{
     margin-left: 1%;
   }
+  .shakthi{
+  display: none;
+}
   }
 
   @media screen and (max-width: 764px) and (min-width: 575px) {
@@ -259,6 +261,9 @@ input{
   .center{
     margin-left: 1%;
   }
+  .shakthi{
+  display: none;
+}
   }
   @media screen and (max-width: 767px) and (min-width: 760px) {
 
