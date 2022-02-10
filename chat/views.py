@@ -37,7 +37,6 @@ def checkview(request):
         new_room = Room.objects.create(name=room)
         new_room.save()
         return redirect('/'+room+'/?username='+username)
-
 def send(request):
     message = request.POST['message']
     username = request.POST['username']
@@ -45,7 +44,7 @@ def send(request):
     IST = pytz.timezone('Asia/Kolkata')
     now = datetime.now(IST)
     current_time = now.strftime("%I:%M:%S %p")
-    today = date.today().strftime('%d/%m/%Y')
+    today = now.strftime('%d/%m/%Y')
     new = Message.objects.create(value=message,user=username,room=room_id,date=today,time=current_time)
     new.save()
     return HttpResponse('Message sent successfully')
